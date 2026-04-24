@@ -59,7 +59,7 @@ for i in range(epoch):
             correct=(outputs.argmax(1)==targets).sum()
             total_correct+=correct
     accuracy=total_correct/len(val_data)
-    print(f"测试集的总损失：{total_loss}")
+    print(f"验证集的总损失：{total_loss}")
     print(f"预测准确率：{accuracy}")
 print("训练结束")
 torch.save(myModel.state_dict(),f"myModel_{epoch}.pt")
