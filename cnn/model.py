@@ -27,7 +27,6 @@ class MyModel(nn.Module):
         self.linear1=nn.Linear(64*7*7,128)
         self.linear2=nn.Linear(128,10)
         self.flatten=nn.Flatten()
-
     def forward(self,x):
         # x = self.model1(x)
         x=self.conv1(x)
