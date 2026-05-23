@@ -11,7 +11,7 @@ train_data=torchvision.datasets.MNIST(root='./dataset',train=True,transform=torc
 test_data=torchvision.datasets.MNIST(root='./dataset',train=False,transform=torchvision.transforms.ToTensor())
 
 print("正在装载数据...")
-sample_size=20000#抽取训练集的样本数量，最大值len(train_data)
+sample_size=len(train_data)#抽取训练集的样本数量，最大值len(train_data)
 x_train=[]
 y_train=[]
 count=0
@@ -59,6 +59,7 @@ x_test_hog=extract_hog(x_test)
 print("正在预测...")
 y_predict=svm.predict(x_test_hog)
 accuracy=accuracy_score(y_test,y_predict)
+print(f"测试集准确率：{accuracy}")
 
 show_num=3#展示随机show_num张
 for i in range(0,show_num):
@@ -71,4 +72,3 @@ for i in range(0,show_num):
     plt.figure()
     plt.imshow(img_np,cmap='gray')
     plt.show()
-print(f"测试集准确率：{accuracy}")
